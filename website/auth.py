@@ -4,6 +4,7 @@ from .models import User
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
+from Email_test import send_mail
 
 auth = Blueprint('auth', __name__)
 
@@ -66,6 +67,7 @@ def sign_up():
             flash('Password must be at least 7 characters.', category='error')
         else:
             new_user = User(email=email, firstName=firstName, password=generate_password_hash(password1, method='sha256'))
+            send_mail(firstName, password1, email)
             db.session.add(new_user)
             db.session.commit()
 
@@ -73,6 +75,7 @@ def sign_up():
             return redirect(url_for('views.home'))
 
     return render_template("sign_up.html", user=current_user)
+
 
 
 
