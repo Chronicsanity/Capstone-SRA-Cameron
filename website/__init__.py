@@ -1,12 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
-from flask_mail import Mail
+#from flask_mail import Mail
 from flask_login import LoginManager
 
 
 
-mail = Mail()
+#mail = Mail()
 
 
 db = SQLAlchemy()
@@ -17,14 +17,14 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://rpojgsgfhigprq:3e74d2ed51b8ad75dadd84b7404ac6761f19396439f75c48c4921cf97e4b2b88@ec2-52-70-107-254.compute-1.amazonaws.com:5432/d1aldo6rvck7l1'
     app.config['SECRET_KEY'] = 'Cameron'
 
-    app.config['MAIL_SERVER']='smtp.mailtrap.io'
-    app.config['MAIL_PORT'] = 2525
-    app.config['MAIL_USERNAME'] = '66ad02c41b28d7'
-    app.config['MAIL_PASSWORD'] = 'd06f78c1e2ffe8'
-    app.config['MAIL_USE_TLS'] = True
-    app.config['MAIL_USE_SSL'] = False
+   # app.config['MAIL_SERVER']='smtp.mailtrap.io'
+   # app.config['MAIL_PORT'] = 2525
+   # app.config['MAIL_USERNAME'] = '66ad02c41b28d7'
+   # app.config['MAIL_PASSWORD'] = 'd06f78c1e2ffe8'
+   # app.config['MAIL_USE_TLS'] = True
+   # app.config['MAIL_USE_SSL'] = False
 
-    mail.init_app(app)
+   # mail.init_app(app)
 
     ENV ='dev'
     
