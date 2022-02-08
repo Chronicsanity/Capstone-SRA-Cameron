@@ -1,9 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
+from flask_mail import Mail
 from flask_login import LoginManager
 
 
+
+mail = Mail()
 
 
 db = SQLAlchemy()
@@ -12,12 +15,22 @@ def create_app():
     
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://rpojgsgfhigprq:3e74d2ed51b8ad75dadd84b7404ac6761f19396439f75c48c4921cf97e4b2b88@ec2-52-70-107-254.compute-1.amazonaws.com:5432/d1aldo6rvck7l1'
-    app.config['SECRET_KEY'] = 'mr. worldwide'
-    ENV ='prod'
+    app.config['SECRET_KEY'] = 'Cameron'
+
+    app.config['MAIL_SERVER']='smtp.mailtrap.io'
+    app.config['MAIL_PORT'] = 2525
+    app.config['MAIL_USERNAME'] = '66ad02c41b28d7'
+    app.config['MAIL_PASSWORD'] = 'd06f78c1e2ffe8'
+    app.config['MAIL_USE_TLS'] = True
+    app.config['MAIL_USE_SSL'] = False
+
+    mail.init_app(app)
+
+    ENV ='dev'
     
     if ENV == 'dev':
         app.debug = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://rpojgsgfhigprq:3e74d2ed51b8ad75dadd84b7404ac6761f19396439f75c48c4921cf97e4b2b88@localhost/d1aldo6rvck7l1'
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://rpojgsgfhigprq:3e74d2ed51b8ad75dadd84b7404ac6761f19396439f75c48c4921cf97e4b2b88@ec2-52-70-107-254.compute-1.amazonaws.com:5432/d1aldo6rvck7l1'
         
     else:
         app.debug = False
@@ -41,12 +54,15 @@ def create_app():
     login_manager.init_app(app)
 
     @login_manager.user_loader
+    
     def load_user(id):
         return User.query.get(int(id))
     
     
     
     return app
+
+
 
 def create_database(app):
     if not path.exists('website/' + 'sra'):
