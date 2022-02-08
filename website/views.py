@@ -6,6 +6,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import null
 from .models import Student, ImportData
 import csv
+from flask_mail import Message
+from .__init__ import Mail
 
 
 views = Blueprint('views', __name__)
@@ -89,3 +91,4 @@ def context_processor():
 def sra_admin():
  
     return render_template("sra_admin.html", user=current_user)
+
