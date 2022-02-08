@@ -34,11 +34,11 @@ app.use(
   })
 );
 
-const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: "password",
-  database: "sra_db",
+const db = psychopg2.createConnection({
+  user: "rpojgsgfhigprq",
+  host: "ec2-52-70-107-254.compute-1.amazonaws.com",
+  password: "3e74d2ed51b8ad75dadd84b7404ac6761f19396439f75c48c4921cf97e4b2b88",
+  database: "d1aldo6rvck7l1",
 });
 
 app.post("/register", (req, res) => {
@@ -53,7 +53,7 @@ app.post("/register", (req, res) => {
     }
 
     db.query(
-      "INSERT INTO users (username, pass, email, access) VALUES (?,?,?,?)",
+      "INSERT INTO users (username, password, email, access) VALUES (?,?,?,?)",
       [username, hash , email , access],
       (err, result) => {
         console.log(err);
@@ -85,6 +85,7 @@ app.post("/login", (req, res) => {
       if (result.length > 0) {
         bcrypt.compare(password, result[0].pass, (error, response) => {
           if (response) {
+
             req.session.user = result;
             console.log(req.session.user);
             res.send(req.session.user.username);

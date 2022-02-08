@@ -1,0 +1,23 @@
+{
+  "name": "capstone-sra-cameron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chronicsanity/Capstone-SRA-Cameron.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chronicsanity/Capstone-SRA-Cameron/issues"
+  },
+  "homepage": "https://github.com/Chronicsanity/Capstone-SRA-Cameron#readme",
+  "dependencies": {
+    "socket.io": "^4.4.1",
+    "tar": "^6.1.11"
+  }
+}

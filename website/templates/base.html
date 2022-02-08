@@ -35,6 +35,7 @@
           <a class="nav-item nav-link" id="sra_admin"  href="/sra_admin">sraAdmin</a>
           <a class="nav-item nav-link" id="root"  href="/root">Root</a>
           <a class="nav-item nav-link" id="caller"  href="/caller">Caller</a>
+          
           {% else %}
           <a class="nav-item nav-link" id="login" href="/login">Login</a>
           <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
@@ -60,6 +61,8 @@
           </button>
         </div>
         {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+        <div class="images"><img src="{{url_for('static', filename='ualr_logo.png')}}" /></div>
 
     <div class="container">{% block content %} {% endblock %}</div>
     <script
