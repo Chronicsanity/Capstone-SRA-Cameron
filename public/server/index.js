@@ -35,6 +35,13 @@ app.use(
   })
 );
 
+app.get('/*', (req, res) => {
+  let url = path.join(__dirname, '../client/build', 'index.html');
+  if (!url.startsWith('/app/'))
+    url = url.substring(1);
+  res.sendFile(url);
+});
+
 const db = psychopg2.createConnection({
   user: "rpojgsgfhigprq",
   host: "ec2-52-70-107-254.compute-1.amazonaws.com",
