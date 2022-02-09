@@ -71,6 +71,7 @@ class ImportData(db.Model, UserMixin):
     ualremail = db.Column(db.String(150))
     studenttype = db.Column(db.String(150))
 class callingData(db.Model, UserMixin):
+    
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     tnumber = db.Column(db.String(150), unique=True)
     firstname = db.Column(db.String(150))

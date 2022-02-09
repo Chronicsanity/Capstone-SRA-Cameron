@@ -8,13 +8,14 @@ const session = require("express-session");
 
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+const PORT = process.env.PORT ||5000;
 
 const app = express();
 
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: [PORT],
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -100,6 +101,6 @@ app.post("/login", (req, res) => {
   );
 });
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
   console.log("running server");
 });

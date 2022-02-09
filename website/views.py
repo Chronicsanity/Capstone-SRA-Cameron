@@ -6,8 +6,9 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import null
 from .models import Student, ImportData
 import csv
-#from flask_mail import Message
-#from .__init__ import Mail
+from flask_mail import Message
+from .__init__ import Mail
+
 
 views = Blueprint('views', __name__)
 
@@ -85,14 +86,9 @@ def nextStudent():
 def context_processor():
     return dict(key='value', nextStudent = nextStudent)
 
-#@views.route('/sra_admin', methods=['GET', 'POST'])
-#@login_required
+@views.route('/sra_admin', methods=['GET', 'POST'])
+@login_required
+def sra_admin():
+ 
+    return render_template("sra_admin.html", user=current_user)
 
-#def sra_admin():
-   # if request.method =='POST':
-   #     msg = Message("Hello", sender="from@example.com", recipients=["to@example.com"])
-    #    msg.body = "This is a test from my SRA_app"
-    #    Mail.send(msg)
-    #    flash('Email succesfully sent!', category="success")
-  
-    #return render_template("sra_admin.html", user=current_user)
