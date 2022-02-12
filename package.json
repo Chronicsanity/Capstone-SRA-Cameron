@@ -1,11 +1,10 @@
 {
   "name": "capstone-sra-cameron",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "npm run build",
+    "start": "node index.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "repository": {
@@ -19,8 +18,11 @@
   },
   "homepage": "https://github.com/Chronicsanity/Capstone-SRA-Cameron#readme",
   "dependencies": {
+    "express": "^4.17.2",
     "react-router-dom": "^6.2.1",
     "socket.io": "^4.4.1",
     "tar": "^6.1.11"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
