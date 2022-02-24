@@ -1,7 +1,12 @@
-from website import create_app
+from flask import Flask
+from waitress import serve
 
-app = create_app()
+def create_app():
+    app = Flask(__name__)
+ 
 
-
-if __name__ == '__main__':
-    app.run(debug=False)
+    if __name__ == '__main__':
+        serve(app, listen='*:5000')
+        app = create_app()
+        app.run(debug=False)
+    return 'OK'
