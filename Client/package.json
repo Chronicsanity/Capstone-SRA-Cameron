@@ -1,0 +1,19 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.mjs",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "devStart": "nodemon ./server.mjs",
+    "client": "npm start --prefix client",
+    "heroku-postbuild": "NODE_OPTIONS=--openssl-legacy-provider NPM_CONFIG_PRODUCTION=false && cd client && npm install && npm run build"
+  },
+  "author": "",
+  "license": "ISC"
+}
